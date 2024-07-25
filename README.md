@@ -1,47 +1,60 @@
-# Lap Timer
-# Project Summary
+# Laptime Project Summary
 
-## Project Overview
-The lap-time project aims to analyze and optimize racing lap times for a specific type of race vehicle. 
-The primary goals are to understand the factors affecting lap times, develop predictive models, and identify strategies for improving performance.
+## Power Management
+- **Batteries:** EEMB 3.7V 1100mAH LiPo batteries
+- **Charging Module:** DC 5V 2.1A Mobile Power DIY Board (4.2V Charge/Discharge/Boost/Battery Protection/Indicator Module for 3.7V Lithium 18650 Li-ion)
+- **Configuration:** 
+  - Connect to ESP32
+  - Charge battery when USB-C is powered
+  - Use battery to power ESP32 when USB-C is not present
 
-## Key Points Discussed
+## Module and Wiring Configuration
+- **Main Unit (MU):** ESP32 D1 Mini with a light sensor and an OLED screen (0.96")
+- **Laser Unit (LU):** ESP32 C3-zero to control the laser
+- **Gate Units (GU):** 
+  - MU will handle the main logic
+  - LU will be the simplest possible
+- **Control Unit (CU):**
+  - Decision needed: Should the first MU act as the CU, or should any MU be capable of becoming the CU?
+  - Universal CU approach requires complex coding but is more flexible
+  - Separate CU approach simplifies code but requires an additional ESP32
 
-### 1. Data Collection
-- Importance of gathering high-quality data from various sources such as sensors on the vehicle, track conditions, and driver performance.
-- Types of data required: speed, acceleration, braking points, tire pressure, weather conditions, and track layout.
+## Communication
+- **Protocols:** BLE/ESPNow
+- **Modes:**
+  - Optimize for power efficiency when not in use
+  - Ensure precision when in measuring mode
 
-### 2. Data Processing
-- Cleaning and preprocessing the data to remove noise and inconsistencies.
-- Methods for handling missing data and ensuring data integrity.
+## Future Versions
+- **Considerations:**
+  - Ideas for future iterations not included in version 1
 
-### 3. Analysis Techniques
-- Statistical analysis to identify key variables influencing lap times.
-- Use of machine learning models to predict lap times based on different conditions and inputs.
+## User Interface
+- **Displays:**
+  - Use existing display modules
+  - Consider using the WLED matrix 16x16 for a big time display in future versions (possibly as the CU)
 
-### 4. Model Development
-- Selection of appropriate machine learning algorithms (e.g., linear regression, decision trees, neural networks).
-- Training and validating models using historical data.
-- Fine-tuning model parameters to improve accuracy.
+## Security
+- **Basic Security:**
+  - Prevent easy interference with wireless communication
 
-### 5. Performance Improvement Strategies
-- Analyzing model outputs to identify areas for potential improvements (e.g., optimal braking points, acceleration patterns).
-- Implementing changes in driving strategy or vehicle setup based on analysis.
+## Compliance and Certification
+- **Version 1:** 
+  - Not a priority
 
-### 6. Simulation and Testing
-- Creating simulations to test the impact of proposed changes without real-world trials.
-- Comparing simulated results with actual lap times to validate improvements.
+## Project Management and Documentation
+- **Tools:** 
+  - GitHub for code and documentation
+  - PlatformIO for firmware development
+- **Languages:**
+  - C++ as the primary language
 
-### 7. Visualization and Reporting
-- Developing dashboards and visualizations to present findings clearly.
-- Regular reporting of analysis results to stakeholders.
+## Exclusions for Version 1
+- **Environmental Testing:** Not in scope
+- **Compliance and Certification:** Not a priority
+- **Prototyping and Iteration:** Obvious step, not detailed here
+- **Support and Maintenance:** Direct contact within the club, not a separate task
 
-### 8. Future Work
-- Continuous improvement of models with new data.
-- Exploring advanced techniques such as reinforcement learning for autonomous driving optimization.
+---
 
-## Next Steps
-- Finalize the data collection plan and start gathering data.
-- Begin the initial phase of data processing and exploratory analysis.
-- Select and implement preliminary machine learning models for lap time prediction.
-- Schedule meetings to review progress and discuss findings.
+By focusing on these core elements, the project maintains a manageable​⬤
