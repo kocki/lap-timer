@@ -52,9 +52,4 @@
 ## Exclusions for Version 1
 - **Environmental Testing:** Not in scope
 - **Compliance and Certification:** Not a priority
-- **Prototyping and Iteration:** Obvious step, not detailed here
-- **Support and Maintenance:** Direct contact within the club, not a separate task
 
----
-
-By focusing on these core elements, the project maintains a manageable​⬤
